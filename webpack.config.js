@@ -25,26 +25,6 @@ module.exports = {
                 exclude: /node_modules/,
                 use: ['babel-loader']
             },
-           /* {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
-            }
-            */
-            /*{
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            // you can specify a publicPath here
-                            // by default it use publicPath in webpackOptions.output
-                            publicPath: '../'
-                        }
-                    },
-                    "css-loader"
-                ]
-            },*/
-
             {
                 //test: /\.(scss)$/,
                 test: /\.(sa|sc|c)ss$/,
@@ -72,15 +52,6 @@ module.exports = {
                     loader: 'sass-loader' // compiles Sass to CSS
                 }]
             },
-           // { test: /\.html$/i, loader: 'html-loader' },
-            /*{
-                test: /\.scss$/,
-                use: [
-                    "style-loader", // creates style nodes from JS strings
-                    "css-loader", // translates CSS into CommonJS
-                    "sass-loader" // compiles Sass to CSS, using Node Sass by default
-                ]
-            }*/
         ],
         
     },
@@ -142,7 +113,8 @@ module.exports = {
     },
     devServer: {
         host: '127.0.0.1',
-        //noInfo: true,
+        //disableHostCheck: true,
+        noInfo: true,
         historyApiFallback: true,
         disableHostCheck: true,
         contentBase: path.join(__dirname, 'dist'),

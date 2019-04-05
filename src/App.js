@@ -5,8 +5,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
-import Post from "./components/Post";
-
 
 import { Navbar, Nav, Form, Button, FormControl } from 'react-bootstrap';
 
@@ -29,7 +27,7 @@ class App extends Component {
                                 <Link to={'/'} className="nav-link"> Home </Link>
                                 <Link to={'/contact'} className="nav-link">Contact</Link>
                                 <Link to={'/about'} className="nav-link">About</Link>
-                                <Link to={'/post'} className="nav-link">Post</Link>
+                             
                             </Nav>
                             <Form inline>
                                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -44,10 +42,15 @@ class App extends Component {
                         <Route exact path='/' component={Home} />
                         <Route path='/contact' component={Contact} />
                         <Route path='/about' component={About} />
-                        <Route path='/post' component={Post} />
                         <Route component={NoMatch} />
                     </Switch>
                     </div>
+
+                    <footer class="footer">
+                        <div class="container">
+                            <span class="text-muted">Place sticky footer content here.</span>
+                        </div>
+                    </footer>
                 </div>
             </Router>
         );
