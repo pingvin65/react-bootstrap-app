@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-
-const numbers = [1, 2, 3, 4, 5];
-const listItems = numbers.map((number) =>
-    <li key={number.toString()}>
-        {number}
-    </li>
-);
+import PostData from '../data/posts.json';
 
 class Home extends Component {
     render() {
         return ( 
             <div>        
-                <h2>Home</h2>
-                <ul>{listItems}</ul>    
+                {PostData.map((postDetail, index) => {
+                    return <div key={index}>
+                        <h3>{postDetail.title}</h3>
+                        <p>{postDetail.content}</p>
+                    </div>
+                })}
             </div>       
         );
     }
