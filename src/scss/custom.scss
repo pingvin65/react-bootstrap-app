@@ -1,0 +1,8 @@
+//$primary: purple; 
+//$primary: #000080; 
+$navbg: #396CA4;
+@import "node_modules/bootstrap/scss/bootstrap";
+
+.navbg {
+   background-color: $navbg; 
+}

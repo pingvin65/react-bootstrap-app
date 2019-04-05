@@ -1,0 +1,15 @@
+.containerTop{
+    margin-top: 1.25rem;
+}
+.pcontent{
+    margin-bottom: .65rem;
+}
+.pinvalid-feedback{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+.pinvalid-feedback-first-word{
+     font-weight: bold;
+} 
