@@ -7,12 +7,12 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const devMode = process.env.NODE_ENV !== 'production';
 //const prodMode = process.env.NODE_ENV === 'production';
-
-
+const entrydir = 'src';
+const productdir = 'dist';
 module.exports = {
     entry: {
-        app: './src/index.js',
-        style: './src/style.js'
+        app: './' + entrydir + '/index.js',
+        style: './' + entrydir + '/style.js'
     },
     watch: true,
     watchOptions: {
@@ -69,7 +69,7 @@ module.exports = {
     output: {
         publicPath: devMode ? '/' : './',
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, productdir)
     },
     devtool: false,
     //devtool: "source-map",
@@ -89,8 +89,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             title: 'Output Management',
-            favicon: 'src/images/favicon16x16.png',
-            template: path.resolve( __dirname, 'src/index.html'),
+            favicon: entrydir + '/images/favicon16x16.png',
+            template: path.resolve(__dirname, entrydir + '/index.html'),
             filename: 'index.html',
             //template: 'src/index.html'
         }),
@@ -117,7 +117,7 @@ module.exports = {
         noInfo: true,
         historyApiFallback: true,
         disableHostCheck: true,
-        contentBase: path.join(__dirname, 'dist'),
+        contentBase: path.join(__dirname, productdir),
         hot: true,
         port: 9000
     }
