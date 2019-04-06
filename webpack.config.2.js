@@ -7,13 +7,12 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const devMode = process.env.NODE_ENV !== 'production';
 //const prodMode = process.env.NODE_ENV === 'production';
-const entrydir = 'src';
-const productdir = 'dist';
+
+
 module.exports = {
     entry: {
-        app: path.resolve(__dirname, entrydir + '/index.js'),
-        //app: './' + entrydir + '/index.js',
-        style: './' + entrydir + '/style.js'
+        app: './src/index.js',
+        style: './src/style.js'
     },
     watch: true,
     watchOptions: {
@@ -31,14 +30,13 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/,
                 use: [{
                     loader: MiniCssExtractPlugin.loader, options: {
-                        sourceMap: true
-                    }
-
+                        sourceMap: true}
+                    
                     //'style-loader', // inject CSS to page
                 }, {
-                    loader: 'css-loader', options: {
-                        sourceMap: true
-                    } // translates CSS into CommonJS modules
+                        loader: 'css-loader', options: {
+                            sourceMap: true
+                        } // translates CSS into CommonJS modules
                 }, {
                     loader: 'postcss-loader', // Run post css actions
                     options: {
@@ -55,23 +53,23 @@ module.exports = {
                 }]
             },
         ],
-
+        
     },
-
+    
     resolve: {
         extensions: ['*', '.js', '.jsx'],
     },
-    /* output: {
-         //filename: '[name].bundle.js',
-         //path: path.resolve(__dirname, 'dist'),
-         path: __dirname + '/dist',
-         publicPath: './',
-         filename: 'bundle.js'
-     },*/
+   /* output: {
+        //filename: '[name].bundle.js',
+        //path: path.resolve(__dirname, 'dist'),
+        path: __dirname + '/dist',
+        publicPath: './',
+        filename: 'bundle.js'
+    },*/
     output: {
         publicPath: devMode ? '/' : './',
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, productdir)
+        path: path.resolve(__dirname, 'dist')
     },
     devtool: false,
     //devtool: "source-map",
@@ -91,8 +89,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             title: 'Output Management',
-            favicon: entrydir + '/images/favicon16x16.png',
-            template: path.resolve(__dirname, entrydir + '/index.html'),
+            favicon: 'src/images/favicon16x16.png',
+            template: path.resolve( __dirname, 'src/index.html'),
             filename: 'index.html',
             //template: 'src/index.html'
         }),
@@ -109,18 +107,16 @@ module.exports = {
                 sourceMap: true, // Must be set to true if using source-maps in production
                 terserOptions: {
                     // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
-                }
-            }),
+                }}),
             new OptimizeCSSAssetsPlugin({})
         ]
     },
     devServer: {
         host: '127.0.0.1',
-        disableHostCheck: true,
+        //disableHostCheck: true,
         //noInfo: true,
         historyApiFallback: true,
         disableHostCheck: true,
-        //contentBase: path.join(__dirname, productdir),
         contentBase: path.join(__dirname, 'dist'),
         hot: true,
         port: 9000

@@ -14,7 +14,7 @@ const title = 'My Minimal React Webpack Babel Setup';
 
 
 class App extends Component {
-    render() {
+    render() { 
         return (
             <Router>
                 <div>

@@ -31,14 +31,13 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/,
                 use: [{
                     loader: MiniCssExtractPlugin.loader, options: {
-                        sourceMap: true
-                    }
-
+                        sourceMap: true}
+                    
                     //'style-loader', // inject CSS to page
                 }, {
-                    loader: 'css-loader', options: {
-                        sourceMap: true
-                    } // translates CSS into CommonJS modules
+                        loader: 'css-loader', options: {
+                            sourceMap: true
+                        } // translates CSS into CommonJS modules
                 }, {
                     loader: 'postcss-loader', // Run post css actions
                     options: {
@@ -55,19 +54,19 @@ module.exports = {
                 }]
             },
         ],
-
+        
     },
-
+    
     resolve: {
         extensions: ['*', '.js', '.jsx'],
     },
-    /* output: {
-         //filename: '[name].bundle.js',
-         //path: path.resolve(__dirname, 'dist'),
-         path: __dirname + '/dist',
-         publicPath: './',
-         filename: 'bundle.js'
-     },*/
+   /* output: {
+        //filename: '[name].bundle.js',
+        //path: path.resolve(__dirname, 'dist'),
+        path: __dirname + '/dist',
+        publicPath: './',
+        filename: 'bundle.js'
+    },*/
     output: {
         publicPath: devMode ? '/' : './',
         filename: '[name].bundle.js',
@@ -109,15 +108,14 @@ module.exports = {
                 sourceMap: true, // Must be set to true if using source-maps in production
                 terserOptions: {
                     // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
-                }
-            }),
+                }}),
             new OptimizeCSSAssetsPlugin({})
         ]
     },
     devServer: {
         host: '127.0.0.1',
-        disableHostCheck: true,
-        //noInfo: true,
+        //disableHostCheck: true,
+        noInfo: true,
         historyApiFallback: true,
         disableHostCheck: true,
         //contentBase: path.join(__dirname, productdir),
