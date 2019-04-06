@@ -12,12 +12,13 @@ npm install
 ``` 
 npm start
 ```
-
+![alt text](https://raw.githubusercontent.com/pingvin65/react-webpack/master/images/reactboot.png)
 ### Bild production
 
 ```
 npm run-script build
 ```
+In the folder dist are all production files.
 
 ### License
 
