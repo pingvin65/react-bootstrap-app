@@ -5,10 +5,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const devMode = process.env.NODE_ENV !== 'production';
+//const devMode = process.env.NODE_ENV !== 'production';
 //const prodMode = process.env.NODE_ENV === 'production';
 const entrydir = 'src';
 const productdir = 'dist';
+
 module.exports = {
     entry: {
         app: path.resolve(__dirname, entrydir + '/index.js'),
@@ -69,7 +70,8 @@ module.exports = {
          filename: 'bundle.js'
      },*/
     output: {
-        publicPath: devMode ? '/' : './',
+        //publicPath: prodMode ? './' : '/',
+        publicPath: '',
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, productdir)
     },
@@ -117,11 +119,12 @@ module.exports = {
     devServer: {
         host: '127.0.0.1',
         disableHostCheck: true,
+        publicPath: '/',
         //noInfo: true,
         historyApiFallback: true,
         disableHostCheck: true,
         //contentBase: path.join(__dirname, productdir),
-        contentBase: path.join(__dirname, 'dist'),
+        //contentBase: path.join(__dirname, 'dist'),
         hot: true,
         port: 9000
     }

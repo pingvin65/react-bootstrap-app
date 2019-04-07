@@ -15,18 +15,19 @@ const title = 'My Minimal React Webpack Babel Setup';
 
 class App extends Component {
     render() { 
+        const homepath = window.location.pathname
         return (
             <Router>
                 <div>
                     <Navbar className="navbg" variant="dark" expand="lg">
                         <div className="container">
-                            <Link to={'/'} className="navbar-brand"> React </Link>
+                            <Link to={homepath}  className="navbar-brand"> React </Link>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
-                                <Link to={'/'} className="nav-link"> Home </Link>
-                                <Link to={'/contact'} className="nav-link">Contact</Link>
-                                <Link to={'/about'} className="nav-link">About</Link>
+                                    <Link to={homepath}  className="nav-link"> Home </Link>
+                                    <Link to={homepath + 'contact'} className="nav-link">Contact</Link>
+                                    <Link to={homepath + 'about'}  className="nav-link">About</Link>
                              
                             </Nav>
                             <Form inline>
@@ -39,9 +40,9 @@ class App extends Component {
                     {/* <h2>{title}</h2> */}
                     <div className="container containerTop">
                     <Switch>
-                        <Route exact path='/' component={Home} />
-                        <Route path='/contact' component={Contact} />
-                        <Route path='/about' component={About} />
+                            <Route exact path={homepath} component={Home} />
+                            <Route path={homepath +'contact'} component={Contact} />
+                            <Route path={homepath + 'about'} component={About} />
                         <Route component={NoMatch} />
                     </Switch>
                     </div>
