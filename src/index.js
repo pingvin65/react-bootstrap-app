@@ -4,11 +4,7 @@ import App from './App';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 //console.log('Hello, world!');
-ReactDOM.render(
-//    <div>{title}</div>,
-<App />,
-    document.getElementById('app')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
 
 //module.hot.accept();
 if (module.hot) {

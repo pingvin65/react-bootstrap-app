@@ -5,7 +5,7 @@ class Contact extends Component {
     render() {
         return (
             <div>
-                <h2>Contact</h2>
+                <h3>Contact</h3>
                 <Form>
                     <Form.Group controlId="exampleForm.Name">
                         <Form.Label>Name</Form.Label>
